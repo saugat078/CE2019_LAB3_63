@@ -1,9 +1,8 @@
 #include "BST.h"
-#define MAX_SIZE 40
+#define MAX_SIZE 50
 
 class arrayBST : public BST
 {
-
     public:
         int elements[MAX_SIZE];
         arrayBST();
