@@ -11,5 +11,6 @@ class arrayBST : public BST
         void add(int data);
         bool search(int data);
         int max();
+        
  		void inorder(int x);
 };
