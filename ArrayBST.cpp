@@ -4,17 +4,18 @@ using namespace std;
 
 arrayBST::arrayBST(){
 	for(int i=0;i<MAX_SIZE;i++){
-		this->elements[i]=0;
+		this->item[i]=0;
 	}	
 }
 arrayBST::~arrayBST(){}
+
 void arrayBST::add(int data){
-	if(this->elements[1]==0){
-		elements[1]=data;
+	if(this->item[1]==0){
+		item[1]=data;
 	}
 	else{
 		for(int i=1;i<MAX_SIZE;){
-			if(data<this->elements[i]){
+			if(data<this->item[i]){
 				i=2*i;
 				cout<<"Left :"<<i<<endl;
 			}
@@ -22,8 +23,8 @@ void arrayBST::add(int data){
 				i=2*i+1;
 				cout<<"Right :\t"<<i<<endl;
 			}
-			if(this->elements[i]==0){
-				this->elements[i]=data;
+			if(this->item[i]==0){
+				this->item[i]=data;
 				cout<<"Inserted on "<<i<<endl;
 				break;
 			}
@@ -32,11 +33,11 @@ void arrayBST::add(int data){
 }
 bool arrayBST::search(int data){
 	for(int i=1;i<MAX_SIZE;){
-		if(this->elements[i]==data){
+		if(this->item[i]==data){
 			cout<<"Required data "<<data<<" exists at index "<<i<<" of the tree\n";
 			return true;
 		}
-		else if (data<this->elements[i]){
+		else if (data<this->item[i]){
 				i=2*i;
 			}
 		else{
@@ -48,18 +49,18 @@ bool arrayBST::search(int data){
 }
 
 void arrayBST::preorder(int x){
-	int l=2*x;
-	int r=2*x+1;
+	int left=2*x;
+	int right=2*x+1;
 	
-	cout<<(this->elements[x])<<" ";
-	if(this->elements[l]!=0)
+	cout<<(this->item[x])<<" ";
+	if(this->item[left]!=0)
 	{
-		preorder( l);
+		preorder( left);
 	}
 	
-	if(this->elements[r]!=0)
+	if(this->item[right]!=0)
 	{
-		preorder( r);
+		preorder( right);
 	}
 	
 }		
@@ -68,13 +69,13 @@ int arrayBST::max()
 {
 	for(int i=1;i<MAX_SIZE;)
 	{
-		if(this->elements[2*i+1]!=0)
+		if(this->item[2*i+1]!=0)
 		{
 			i=2*i+1;
 		}
 		else
 		{
-			return elements[i];
+			return item[i];
 		}
 		
 	}
@@ -84,17 +85,17 @@ int arrayBST::max()
 void arrayBST::inorder(int x)
 {
 	
-	int l=2*x;
-	int r=2*x+1;
-	if(this->elements[l]!=0)
+	int left=2*x;
+	int right=2*x+1;
+	if(this->item[left]!=0)
 	{
-		inorder( l);
+		inorder( left);
 	}
-	cout<<(this->elements[x])<<" ";
+	cout<<(this->item[x])<<" ";
 	
-	if(this->elements[r]!=0)
+	if(this->item[right]!=0)
 	{
-		inorder( r);
+		inorder( right);
 	}
 	
 		
@@ -114,13 +115,13 @@ int main(){
 	a.add(17);
 	a.add(20);
 	for(int i=0;i<MAX_SIZE;i++){
-		cout<<a.elements[i]<<",";
+		cout<<a.item[i]<<",";
 	}
 	cout<<endl;
 	a.preorder(1);
 	cout<<endl;
 	a.search(21);
-	a.search(29);
+	a.search(2);
 	int temp;
 	temp=a.max();
 	cout<<"max value : "<<temp<<endl;
