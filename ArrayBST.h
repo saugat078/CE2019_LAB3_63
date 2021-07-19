@@ -4,7 +4,7 @@
 class arrayBST : public BST
 {
     public:
-        int elements[MAX_SIZE];
+        int item[MAX_SIZE];
         arrayBST();
         ~arrayBST();
         void preorder(int x);
