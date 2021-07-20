@@ -7,6 +7,16 @@ arrayBST::arrayBST(){
 		this->item[i]=0;
 	}	
 }
+bool arrayBST:: isEmpty(){
+	for(int i=0;i<MAX_SIZE;i++){ 
+    if(item[i] == 0){ 
+        return true; 
+    } 
+    else 
+        return false; 
+} 
+
+}
 arrayBST::~arrayBST(){}
 
 void arrayBST::add(int data){
@@ -121,7 +131,7 @@ int main(){
 	a.preorder(1);
 	cout<<endl;
 	a.search(21);
-	a.search(2);
+	a.search(5);
 	int temp;
 	temp=a.max();
 	cout<<"max value : "<<temp<<endl;
