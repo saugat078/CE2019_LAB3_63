@@ -15,7 +15,7 @@ class node{
         node* next;
 };
 
-class LinkedBST: public BST{
+class LinkedBST: public AbstractBST{
 	private:
 	Node *root = NULL;
 	public:
